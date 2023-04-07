@@ -5,7 +5,7 @@ import { MoreProfile } from './MoreProfile'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import chatContext from '../../Context/Chat/chatContext'
 import { Spinner } from './Spinner'
-export const Sidebar = () => {
+export const Sidebar = ({ setchatwindow} ) => {
     let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11.12]
     const { gettingChatMates, chatMates,newuser } = useContext(chatContext)
    
@@ -17,8 +17,7 @@ export const Sidebar = () => {
 
     const [openModal, setopenModal] = useState(false)
     return (
-        <div className="sidebar-wrapper bg-fourth pt-2 " style={{ "flexGrow": "1" }}>
-
+        <div className={`sidebar-wrapper ${window.innerWidth > 750 && " animated slideInLeft"} bg-fourth pt-2 `} style={{ "flexGrow": "1" }}>
             <div className="w-100 users-wrapper scrollbar" >
 
                 {!chatMates ?
@@ -31,7 +30,7 @@ export const Sidebar = () => {
                     </div>:
                     Object.entries(chatMates).sort((a, b) =>b[1].date?.date -a[1].date?.date).map((chat) =>{
                         return (
-                            <Friend userInfo={chat[1].userInfo} name={chat[1].userInfo.name} photo={chat[1].userInfo.photo} date={chat[1].date} lastmsg={chat[1].lastMessage} />
+                            <Friend setchatwindow={setchatwindow} userInfo={chat[1].userInfo} name={chat[1].userInfo.name} photo={chat[1].userInfo.photo} date={chat[1].date} lastmsg={chat[1].lastMessage} />
                         )
                     })
                     
@@ -40,7 +39,7 @@ export const Sidebar = () => {
 
             <div className="p-2">
 
-                <button type="button" onClick={() => { setopenModal(true) }} className="btn btn-default cyan darken-3 text-white bg-fourth btn-lg btn-block" style={{ "textTransform": "capitalize" }}> <span style={{ "fontSize": "16px" }}>+</span> New Chat Buddy</button>
+                <button type="button" onClick={() => { setopenModal(true) }} className="btn my-sm-0 mb-5 btn-default cyan darken-3 text-white bg-fourth btn-lg btn-block" style={{ "textTransform": "capitalize" }}> <span style={{ "fontSize": "16px" }}>+</span> New Chat Buddy</button>
 
                 <span></span>
             </div>

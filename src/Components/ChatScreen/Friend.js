@@ -1,7 +1,7 @@
 import React,{useContext} from 'react'
 import chatContext from '../../Context/Chat/chatContext'
 
-export const Friend = ({name,photo,date,lastmsg,userInfo}) => {
+export const Friend = ({name,photo,date,lastmsg,userInfo,setchatwindow}) => {
   const {dispatch,data} = useContext(chatContext)
   let d=new Date(date.date?.seconds *1000)
   let today=new Date()
@@ -24,6 +24,7 @@ export const Friend = ({name,photo,date,lastmsg,userInfo}) => {
   // let time=d.toLocaleTimeString("us",{hour:"numeric",minute:"numeric"})
 //  console.log(date);
   let handleSelect=()=>{
+    setchatwindow(true)
     dispatch({type: 'CHANGE_USER',payload:userInfo})
   }
   

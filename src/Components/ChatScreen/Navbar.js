@@ -19,13 +19,9 @@ export const Navbar = () => {
 
     return (
         <div>
-            <nav class="py-2 pt-3 navbar navbar-expand-lg navbar-dark bg-second">
+            <nav class="py-2 d-flex w-100 justify-content-between pt-3 navbar  navbar-dark bg-second"  >
                 <span className="app-name white-text app-name-chat " style={{ "top": "0", "fontSize": "34px" }} >Chat Karlo</span>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-                    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent-4">
+                
                     <ul class="navbar-nav  ml-auto">
                         <li class="nav-item dropdown active rounded overflow-hidde">
                             <a class="nav-link  p-1 dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
@@ -38,7 +34,6 @@ export const Navbar = () => {
                             </div>
                         </li>
                     </ul>
-                </div>
             </nav>
         </div>
     )

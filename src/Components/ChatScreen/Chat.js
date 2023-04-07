@@ -3,11 +3,15 @@ import { Message } from './Message'
 import { MDBBtn } from 'mdb-react-ui-kit'
 import chatContext from '../../Context/Chat/chatContext'
 import { useRef } from 'react'
+import authContext from '../../Context/Auth/authContext'
+import { Timestamp } from 'firebase/firestore'
+import {v4 as uuid } from 'uuid'
 
-export const Chat = () => {
+export const Chat = ({chatwindow, setchatwindow}) => {
   const [text, settext] = useState('')
   const [img, setimg] = useState(null)
-  const { data,postTextMessage,postImgMessage ,getMessages,messages } = useContext(chatContext)
+  const { data,postTextMessage,postImgMessage ,getMessages,messages,setmessages } = useContext(chatContext)
+  const {currentUser} = useContext(authContext)
 const ref = useRef('')
   if (data.chatId) {
     getMessages()
@@ -25,15 +29,19 @@ const ref = useRef('')
       
     } else {
       postTextMessage(text)
+      console.log(messages);
     }
 
     settext("")
     setimg(null)
   }
   return (
-    <div className="msg-box" style={{ "flexGrow": "3" }}>
+    <div className={`msg-box ${window.innerWidth <= 750} && "animated slideInRight"`} style={{ "flexGrow": "3" }}>
     <div className={`animated fadeIn kkkk ${data.chatId==null && "d-none"}`}>
-      <div className="receiver-name bg-firs  px-4 white-text">
+      <div className="receiver-name bg-firs  px-2 white-text">
+    {chatwindow &&
+    <b onClick={()=>setchatwindow(false)} className="pr-2 " style={{fontSize:"26px",transform:"scale(1.5)"}} >↩</b>
+     }
         <img src={`https://api.dicebear.com/6.x/lorelei/svg?seed=${data.user.photo} `} className={`rounded-circle  align-self-center`} alt="" style={{ "width": "35px", "height": "35px" }} />
         {data.user.name}
       </div>
@@ -42,7 +50,7 @@ const ref = useRef('')
         {
           messages.map((m,i) => {
             return (
-              <Message message={m} key={m.id} last={i==messages.length - 1} />
+              <Message message={m} last={i==messages.length - 1}  />
             )
           })
         }

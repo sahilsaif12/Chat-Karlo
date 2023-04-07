@@ -90,6 +90,7 @@ const getAllUser = async () => {
         })
     }
 
+
     const chatReducer=(state,action)=>{
         switch (action.type) {
             case "CHANGE_USER":
@@ -129,6 +130,7 @@ const getAllUser = async () => {
             },
             ()=>{
                 getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL)=>{
+                    console.log(downloadURL);
                     await updateDoc(doc(db,"chats",state.chatId),{
                         messages:arrayUnion({
                             id:uuid(),
@@ -159,6 +161,7 @@ const getAllUser = async () => {
                 date:serverTimestamp()
             }
         })
+        getMessages()
     }
 
     const postTextMessage = async (text)=>{
@@ -188,6 +191,8 @@ const getAllUser = async () => {
                 date:serverTimestamp()
             }
         })
+        getMessages()
+
     }
 
     const getMessages=()=>{
@@ -221,7 +226,7 @@ const getAllUser = async () => {
   
     return (
         <ChatContext.Provider value={{ getAllUser,alluser,addingToChatBuddy,chatMates,gettingChatMates,newuser,loading,data:state,dispatch,friends,postImgMessage,postTextMessage,getMessages ,messages, 
-        searchByUsername}}>
+        searchByUsername,setmessages}}>
             {props.children}
         </ChatContext.Provider>
     )

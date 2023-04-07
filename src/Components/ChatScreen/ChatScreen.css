@@ -1,9 +1,13 @@
 .users-wrapper{
-    height: 80vh;
+    max-height: 80vh;
     overflow: scroll;
 }
 .sidebar-wrapper{
     max-width: 500px;
+    min-height: 90vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .messages-wrapper{
     overflow: scroll;
@@ -17,6 +21,7 @@
 .messages{
     overflow: scroll;
     padding-bottom: 0 !important;
+
 }
 /* .messages-wrapper div{
     overflow: scroll;
@@ -24,6 +29,7 @@
 .msg-box{
     background:linear-gradient(to bottom, blue,violet), url('../../images/chatbg.webp');
     background-blend-mode: multiply;
+    min-height: calc(90vh + 8px);
 
 }
 .user{

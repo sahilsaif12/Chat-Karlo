@@ -29,7 +29,7 @@ export const LogIn = ({ setactiveBtn }) => {
   // }, [])
   
   return (
-    <form onSubmit={handleSubmit} className='animated flipInY ' style={{ "minHeight": "290px" }}>
+    <form onSubmit={handleSubmit} className='animated fadeIn ' style={{ "minHeight": "290px" }}>
       <MDBInput className='mb-4 white-text ' labelClass='grey-text' type='text' id='form2Example1 ' label='Username' />
       <MDBInput className='mb-4 white-text ' labelClass='grey-text' type='password' id='form2Example2' label='Password' />
 
