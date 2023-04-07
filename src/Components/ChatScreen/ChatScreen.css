@@ -1,0 +1,84 @@
+.users-wrapper{
+    height: 80vh;
+    overflow: scroll;
+}
+.sidebar-wrapper{
+    max-width: 500px;
+}
+.messages-wrapper{
+    overflow: scroll;
+    height: 77vh;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction:column;
+    align-items: end;
+    justify-content: end;
+}
+.messages{
+    overflow: scroll;
+    padding-bottom: 0 !important;
+}
+/* .messages-wrapper div{
+    overflow: scroll;
+} */
+.msg-box{
+    background:linear-gradient(to bottom, blue,violet), url('../../images/chatbg.webp');
+    background-blend-mode: multiply;
+
+}
+.user{
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1;
+    border-bottom: 1px solid #000000a3;
+}
+.user:hover{
+    background-color: #00506885;
+    /* border-bottom: 1px solid transparent; */
+}
+.user-selected{
+    background-color: #004257;
+}
+
+.msg{
+    border-radius: 0 15px 0 15px ;
+    box-shadow: 1px 2px 0 1px rgb(55, 148, 255);
+
+}
+
+.msg-username{
+    border-radius: 0 15px 0 0 ;
+    background-color: #374fad;
+    box-shadow: 1px -1px 0 1px rgba(9, 120, 246, 0.926);
+}
+.sender-msg-username{
+    border-radius: 0 15px 0 0 ;
+    background-color: #36055b;
+    box-shadow: 1px -1px 0 1px rgba(160, 36, 164, 0.704);
+}
+.sender-msg{
+    box-shadow: 1px 1px 0 1px #cc4fec;
+}
+
+.hide-long-msg{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&display=swap');
+.receiver-name{
+    background-color: rgba(0, 92, 128, 0.342);
+    backdrop-filter: blur(1px) saturate(193%);
+    -webkit-backdrop-filter: blur(6px) saturate(173%);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    font-family: 'Edu NSW ACT Foundation', cursive;    
+    
+}
+ion-icon{
+    color: rgb(157, 254, 243);
+    font-size: 24px;
+}
