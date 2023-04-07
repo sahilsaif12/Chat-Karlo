@@ -1,9 +1,8 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, {  useReducer, useState } from 'react'
 import ChatContext from './chatContext';
-import { Timestamp, arrayUnion, collection, doc, endAt, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, setDoc, startAt, updateDoc, where } from 'firebase/firestore';
+import { Timestamp, arrayUnion, collection, doc, endAt, getDocs, onSnapshot, orderBy, query, serverTimestamp, setDoc, startAt, updateDoc, where } from 'firebase/firestore';
 import { db, storage } from '../../firebase';
 import authContext from '../Auth/authContext';
-import { Await } from 'react-router-dom';
 import { useContext } from 'react';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import {v4 as uuid } from 'uuid'
@@ -23,7 +22,7 @@ const getAllUser = async () => {
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
             console.log(doc.data());
-            let a= friends.some((id)=>id==doc.data().uid)
+            let a= friends.some((id)=>id===doc.data().uid)
             if (!a) {
                 users.push(doc.data());
             }
