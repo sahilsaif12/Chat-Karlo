@@ -19,12 +19,9 @@ export const Friend = ({name,photo,date,lastmsg,userInfo,setchatwindow}) => {
  
 
   }
-  //   console.log(new Date(d.getTime()-today.getTime()).getHours());
-  // }
-  // let time=d.toLocaleTimeString("us",{hour:"numeric",minute:"numeric"})
-//  console.log(date);
+
   let handleSelect=()=>{
-    setchatwindow(true)
+    window.innerWidth<=750 && setchatwindow(true)
     dispatch({type: 'CHANGE_USER',payload:userInfo})
   }
   

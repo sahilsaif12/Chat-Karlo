@@ -9,19 +9,16 @@ export const Message = ({message,last}) => {
   const ref = useRef('')
   let d=new Date(message.date.seconds *1000)
   let time=d.toLocaleTimeString("us",{hour:"numeric",minute:"numeric"})
-  // console.log(message.date.seconds);
+  // (message.date.seconds);
     let ownerSide=message.senderId===currentUser.uid
     useEffect(() => {
       if (last) {
         ref.current?.scrollIntoView({ behavior: "smooth" });
         
       }
-      // element.scrollTop = element.scrollHeight;
 
-      // ref.current.scrollTop=ref.current.scrollHeight
     }, [])
     
-    // console.log(`https://api.dicebear.com/6.x/lorelei/svg?seed=${ownerSide ?currentUser.photoURL+ "&flip=true":data.user.photo}`);
   return (
     <div ref={ref} className={`d-flex mb-3 ${ownerSide && "flex-row-reverse"} `}>
     <img src={`https://api.dicebear.com/6.x/lorelei/svg?seed=${ownerSide ?currentUser.photoURL+ "&flip=true":data.user.photo} `} className={`rounded-circle border border-primary   ${ownerSide?"bg-third":"bg-fourth"} align-self-end`} alt="" style={{"width":"45px","height":"45px"}} />

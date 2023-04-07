@@ -24,7 +24,6 @@ export const MoreProfile = ({ open, setOpen }) => {
         searchByUsername(text)
     }
     useEffect(() => {
-        console.log(alluser);
         getAllUser()
         ref.current.click()
     }, [])
@@ -49,7 +48,7 @@ export const MoreProfile = ({ open, setOpen }) => {
                                 </button>
                             </div>
 
-                            <form class="  form-inline m-0 d-flex justify-content-center md-form form-   " onChange={() => console.log("sahil")}>
+                            <form class="  form-inline m-0 d-flex justify-content-center md-form form-   " >
                                 <i class="fas fa-search" aria-hidden="true" style={{ color: 'violet' }}></i>
                                 <input class="form-control grey-text form-control-sm ml-3  w-75" style={{ borderBottom: " 2px solid violet " }} type="text" placeholder="Search by Username "
                                     aria-label="Search"

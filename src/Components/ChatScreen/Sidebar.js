@@ -11,13 +11,12 @@ export const Sidebar = ({ setchatwindow} ) => {
    
     useEffect(() => {
         gettingChatMates()
-        Object.entries(chatMates).map((chat) =>{ console.log(chat)})
 
     }, [])
 
     const [openModal, setopenModal] = useState(false)
     return (
-        <div className={`sidebar-wrapper ${window.innerWidth > 750 && " animated slideInLeft"} bg-fourth pt-2 `} style={{ "flexGrow": "1" }}>
+        <div className={`sidebar-wrapper ${window.innerWidth <= 750 && " animated slideInLeft"} bg-fourth pt-2 `} style={{ "flexGrow": "1" }}>
             <div className="w-100 users-wrapper scrollbar" >
 
                 {!chatMates ?

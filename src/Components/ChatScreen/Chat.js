@@ -29,12 +29,18 @@ const ref = useRef('')
       
     } else {
       postTextMessage(text)
-      console.log(messages);
     }
 
     settext("")
     setimg(null)
   }
+
+  const handleKeyDown=(e)=>{
+    if (e.shiftKey==false && e.key ==="Enter" ) {
+      handleSend()
+    }
+  }
+
   return (
     <div className={`msg-box ${window.innerWidth <= 750} && "animated slideInRight"`} style={{ "flexGrow": "3" }}>
     <div className={`animated fadeIn kkkk ${data.chatId==null && "d-none"}`}>
@@ -57,7 +63,7 @@ const ref = useRef('')
         </div>
       </div>
       <div class=" px-2 form-group shadow-textarea d-flex">
-        <textarea value={text} onChange={(e)=>settext(e.target.value)} className="form-control scrollbar z-depth-1  white-text" style={{ "backgroundColor": "#00000063", "resize": "none" }} id="exampleFormControlTextarea6" rows="2" placeholder="Message.."></textarea>
+        <textarea value={text} onKeyDown={handleKeyDown} onChange={(e)=>settext(e.target.value)} className="form-control scrollbar z-depth-1  white-text" style={{ "backgroundColor": "#00000063", "resize": "none" }} id="exampleFormControlTextarea6" rows="2" placeholder="Message.."></textarea>
         <input
           type="file"
           style={{ display: "none" }}

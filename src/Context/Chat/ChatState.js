@@ -21,7 +21,6 @@ const getAllUser = async () => {
         const q = query(collection(db, "users"), where("uid", "!=", currentUser.uid));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
-            console.log(doc.data());
             let a= friends.some((id)=>id===doc.data().uid)
             if (!a) {
                 users.push(doc.data());
@@ -31,7 +30,6 @@ const getAllUser = async () => {
 
         setalluser(users);
         setloading(false);
-        console.log(users);
     }
 
     const addingToChatBuddy=async (name,username, userUid,userPhoto) =>{
@@ -78,7 +76,6 @@ const getAllUser = async () => {
     const gettingChatMates=async()=>{
         onSnapshot(doc(db,"userChats",currentUser.uid),(doc)=>{
             setchatMates(doc.data())
-            console.log(doc.data());
             if (Object.entries(doc.data()).length>0 ) {
                 setnewuser(false)
             }
@@ -130,7 +127,6 @@ const getAllUser = async () => {
             },
             ()=>{
                 getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL)=>{
-                    console.log(downloadURL);
                     await updateDoc(doc(db,"chats",state.chatId),{
                         messages:arrayUnion({
                             id:uuid(),
@@ -207,7 +203,6 @@ const getAllUser = async () => {
         const q = query(collection(db, "users"),where("userName", "!=", currentUser.email.split("@")[0]), orderBy("userName"),startAt(username),endAt(username+"\uf8ff"));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
-            console.log(doc.data());
             let a= friends.some((id)=>id==doc.data().uid)
             if (!a) {
                 users.push(doc.data());
@@ -220,7 +215,6 @@ const getAllUser = async () => {
             setalluser("notfound")
         }
         // setalluser([])
-        console.log(users);
     }
 
   

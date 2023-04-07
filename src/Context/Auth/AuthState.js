@@ -23,7 +23,6 @@ const [signUpError, setsignUpError] = useState(false)
   useEffect(() => {
     const unsub=onAuthStateChanged(auth,(user)=>{
       setcurrentUser(user)
-      console.log(user);
     })
   
     return () => {
@@ -42,7 +41,6 @@ const [signUpError, setsignUpError] = useState(false)
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
-        console.log(userCredential);
         const user = userCredential.user;
         updateProfile(user,{
           displayName:name,
@@ -82,7 +80,6 @@ const [signUpError, setsignUpError] = useState(false)
           name:user.displayName,
           photo:user.photoURL
         })
-        console.log(user);
         navigate('/')
         // ...
       })
@@ -100,16 +97,12 @@ const [signUpError, setsignUpError] = useState(false)
     const querySnapshot = await getDocs(q);
     let users=[]
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
           users.push(doc.data());
   });
     if (users.length>0) {
-      // console.log(querySnapshot);
         setsignUpError("username already exists. Try another")
     }
-    else{
-      console.log(false);
-    }
+    
     
     
 }
