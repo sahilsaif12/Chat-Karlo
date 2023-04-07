@@ -7,7 +7,7 @@ It's full responsive so access it from anywhere .
 CHAT KARTE RAHO ~ !
 
 
-## Live - 
+## Live - https://chat-karlo.netlify.app/
 ## Features
 
 1. Just create your account with your username
