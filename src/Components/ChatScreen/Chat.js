@@ -42,7 +42,7 @@ const ref = useRef('')
   }
 
   return (
-    <div className={`msg-box ${window.innerWidth <= 750} && "animated slideInRight"`} style={{ "flexGrow": "3" }}>
+    <div className={`msg-box ${window.innerWidth <= 750} && "animated fadeIn"`} style={{ "flexGrow": "3" }}>
     <div className={`animated fadeIn kkkk ${data.chatId==null && "d-none"}`}>
       <div className="receiver-name bg-firs  px-2 white-text">
     {chatwindow &&
